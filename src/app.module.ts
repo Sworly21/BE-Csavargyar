@@ -14,7 +14,7 @@ import { Rendeles } from './rendeles.entity';
       password: '',
       database: 'csavargyar',
       entities: [
-        Csavar,Rendeles
+        Csavar, Rendeles
       ],
       synchronize: true,
     }),

@@ -1,21 +1,23 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Rendeles } from "./rendeles.entity";
 
 @Entity()
-export class Csavar{
+export class Csavar {
     @PrimaryGeneratedColumn()
-    id: number;
+    id : number;
 
     @Column()
-    tipus: string;
-
-    @Column()
-    hossz: number;
-
-    @Column()
-    keszlet: number;
-
-    @Column()
-    ar: number;
-
+    tipus : string
     
+    @Column('int')
+    hossz : number
+
+    @Column()
+    keszlet : number
+
+    @Column({type : 'decimal', precision: 30, scale: 2,})
+    ar : number
+
+  @OneToMany(() => Rendeles, (rendeles) => rendeles.csavar_id)
+    rendelesek: Rendeles[]
 }

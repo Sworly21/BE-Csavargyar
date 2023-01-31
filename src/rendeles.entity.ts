@@ -1,14 +1,15 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Csavar } from "./csavar.entity";
 
 @Entity()
-export class Rendeles{
+export class Rendeles {
     @PrimaryGeneratedColumn()
-    id: number;
-
-    @Column()
-    csavar_id: number;
+    id : number;
     
-    @Column()
-    db: number;
+    @ManyToOne(() => Csavar, (csavar) => csavar.id)
+    csavar_id : Csavar
+
+    @Column('int')
+    db : number
 
 }
